@@ -27,7 +27,7 @@ export default {
   computed: {
     dinos({ days }) {
       const number = 15 - days;
-      return number > 0 ? Math.round(number / 2) : 10;
+      return number > 0 ? Math.round(number / 2) : 1;
     },
     fancy({ days }) {
       return days === 0;
