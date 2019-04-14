@@ -1,50 +1,57 @@
 <template>
-  <ul class="vuejs-countdown">
-    <li v-if="days > 0">
-      <p class="digit">{{ days | twoDigits }}</p>
-      <p class="text">{{ days > 1 ? 'days' : 'day' }}</p>
-    </li>
-    <li>
-      <p class="digit">{{ hours | twoDigits }}</p>
-      <p class="text">{{ hours > 1 ? 'hours' : 'hour' }}</p>
-    </li>
-    <li>
-      <p class="digit">{{ minutes | twoDigits }}</p>
-      <p class="text">min</p>
-    </li>
-    <li>
-      <p class="digit">{{ seconds | twoDigits }}</p>
-      <p class="text">Sec</p>
-    </li>
-  </ul>
+  <div v-if="!loading">
+    <div id="countdown-container">
+      <ul class="vuejs-countdown">
+        <li v-if="days > 0">
+          <p class="digit">{{ days | twoDigits }}</p>
+          <p class="text">{{ days > 1 ? 'days' : 'day' }}</p>
+        </li>
+        <li>
+          <p class="digit">{{ hours | twoDigits }}</p>
+          <p class="text">{{ hours > 1 ? 'hours' : 'hour' }}</p>
+        </li>
+        <li>
+          <p class="digit">{{ minutes | twoDigits }}</p>
+          <p class="text">min</p>
+        </li>
+        <li>
+          <p class="digit">{{ seconds | twoDigits }}</p>
+          <p class="text">Sec</p>
+        </li>
+      </ul>
+    </div>
+    <Dinoizer v-bind:days="days"/>
+  </div>
 </template>
 
 <script>
+import Dinoizer from "./Dino-izer.vue";
 let interval = null;
 export default {
-  name: "vuejsCountDown",
+  name: "Countdown",
+  components: {
+    Dinoizer
+  },
   props: {
     end: {
       type: String
-    },
-    stop: {
-      type: Boolean
     }
   },
   data() {
     return {
       now: Math.trunc(new Date().getTime() / 1000),
       date: null,
-      diff: 0
+      diff: 0,
+      loading: true
     };
   },
   created() {
-    if (!this.deadline && !this.end) {
-      throw new Error("Missing props 'deadline' or 'end'");
+    if (!this.end) {
+      throw new Error("Missing props 'end'");
     }
-    this.date = Math.trunc(Date.parse(this.end.replace(/-/g, "/")) / 1000);
+    this.date = Math.trunc(Date.parse(this.end) / 1000);
     if (!this.date) {
-      throw new Error("Invalid props value, correct the 'deadline' or 'end'");
+      throw new Error("Invalid props value, correct the 'end'");
     }
     interval = setInterval(() => {
       this.now = Math.trunc(new Date().getTime() / 1000);
@@ -66,6 +73,7 @@ export default {
   },
   watch: {
     now() {
+      this.loading = false;
       this.diff = this.date - this.now;
       if (this.diff <= 0 || this.stop) {
         this.diff = 0;
@@ -88,6 +96,13 @@ export default {
 };
 </script>
 <style>
+#countdown-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30%;
+  margin: 0 auto;
+}
 .vuejs-countdown {
   padding: 0;
   margin: 0;
@@ -104,7 +119,7 @@ export default {
 .vuejs-countdown li:after {
   content: ":";
   position: absolute;
-  top: 0;
+  top: 5px;
   right: -13px;
   font-size: 32px;
 }

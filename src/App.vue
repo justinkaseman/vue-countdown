@@ -5,14 +5,10 @@
 </template>
 
 <script>
-import Countdown from "./components/Countdown.vue";
-import Dinoizer from "./components/Dino-izer.vue";
 import Light from "./components/Light.vue";
 export default {
   name: "app",
   components: {
-    Countdown,
-    Dinoizer,
     Light
   }
 };
@@ -66,7 +62,7 @@ body {
   );
   background: linear-gradient(
     to bottom,
-    rgb(184, 90, 144) 0%,
+    rgb(146, 73, 114) 0%,
     rgb(54, 30, 42) 73%,
     rgb(24, 13, 19) 100%
   );

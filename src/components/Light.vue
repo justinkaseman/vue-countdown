@@ -6,7 +6,7 @@
     <div id="filo"></div>
     <div id="surprise">
       <div id="darkdwellers">
-        <Countdown end="May 3, 2019"/>
+        <Countdown end="2019-05-03T07:00:00.000-08:00"/>
       </div>
     </div>
   </div>
@@ -104,12 +104,14 @@ input[value="on"]:checked + input[value="off"] {
 #surprise {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 #darkdwellers {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
 }
 input[value="off"]:checked ~ #surprise {
   opacity: 0;
