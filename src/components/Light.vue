@@ -1,12 +1,12 @@
 <template>
   <div id="lampadario">
-    <input type="radio" name="switch" value="on">
-    <input type="radio" name="switch" value="off" checked="checked">
+    <input type="radio" name="switch" value="on" />
+    <input type="radio" name="switch" value="off" checked="checked" />
     <label for="switch"></label>
     <div id="filo"></div>
     <div id="surprise">
       <div id="darkdwellers">
-        <Countdown end="2019-09-26T15:30:00.000Z"/>
+        <Countdown end="2019-10-27T19:30:00.000Z" />
       </div>
     </div>
   </div>
