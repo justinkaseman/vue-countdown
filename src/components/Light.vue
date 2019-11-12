@@ -6,7 +6,7 @@
     <div id="filo"></div>
     <div id="surprise">
       <div id="darkdwellers">
-        <Countdown end="2019-10-27T19:30:00.000Z" />
+        <Countdown end="2019-12-31T03:30:00.000Z" />
       </div>
     </div>
   </div>
