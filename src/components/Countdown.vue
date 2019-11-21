@@ -4,11 +4,11 @@
       <ul class="vuejs-countdown">
         <li v-if="days > 0">
           <p class="digit">{{ days | twoDigits }}</p>
-          <p class="text">{{ days > 1 ? 'days' : 'day' }}</p>
+          <p class="text">{{ days > 1 ? "days" : "day" }}</p>
         </li>
         <li>
           <p class="digit">{{ hours | twoDigits }}</p>
-          <p class="text">{{ hours > 1 ? 'hours' : 'hour' }}</p>
+          <p class="text">{{ hours > 1 ? "hours" : "hour" }}</p>
         </li>
         <li>
           <p class="digit">{{ minutes | twoDigits }}</p>
@@ -20,17 +20,21 @@
         </li>
       </ul>
     </div>
-    <Dinoizer v-bind:days="days"/>
+    <Monthizer />
+    <Dinoizer v-bind:days="days" />
   </div>
 </template>
 
 <script>
 import Dinoizer from "./Dino-izer.vue";
+import Monthizer from "./Month-izer.vue";
+
 let interval = null;
 export default {
   name: "Countdown",
   components: {
-    Dinoizer
+    Dinoizer,
+    Monthizer
   },
   props: {
     end: {
@@ -102,6 +106,7 @@ export default {
   right: 0;
   bottom: 30%;
   margin: 0 auto;
+  z-index: 999;
 }
 .vuejs-countdown {
   padding: 0;

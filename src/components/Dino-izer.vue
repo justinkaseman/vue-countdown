@@ -5,7 +5,12 @@
       v-bind:key="i"
       v-bind:i="i"
       v-bind:fancy="fancy"
-      v-bind:style="[{ position: 'fixed', bottom: Math.floor(Math.random() * (400 - 0 + 1)) + 0 + 'px' }]"
+      v-bind:style="[
+        {
+          position: 'fixed',
+          bottom: Math.floor(Math.random() * (400 - 0 + 1)) + 0 + 'px'
+        }
+      ]"
     />
   </div>
 </template>

@@ -1,5 +1,9 @@
 <template>
-  <div v-bind:class="[i % 2 === 0 ? 'dino-container-left' : 'dino-container-right' ]">
+  <div
+    v-bind:class="[
+      i % 2 === 0 ? 'dino-container-left' : 'dino-container-right'
+    ]"
+  >
     <svg
       version="1.1"
       class="wufoo-ad"
@@ -252,7 +256,7 @@
       viewBox="0 0 77 52.8"
       style="enable-background:new 0 0 77 52.8;"
       xml:space="preserve"
-      v-bind:style="[fancy ? {display: 'block'} : {display: 'none' }]"
+      v-bind:style="[fancy ? { display: 'block' } : { display: 'none' }]"
     >
       <g id="crown-back">
         <path
@@ -281,7 +285,10 @@
           d="M-122.4-4.2l-41.5,60.6h-9.1l41.3-60.6C-131.7-4.2-122.4-4.2-122.4-4.2z"
         ></path>
         <circle class="st3" cx="-38.6" cy="11.5" r="4.4"></circle>
-        <path class="st4" d="M-43.4,30.9l4.8-4.9l4.9,4.9l-4.9,4.8C-38.6,35.7-43.4,30.9-43.4,30.9z"></path>
+        <path
+          class="st4"
+          d="M-43.4,30.9l4.8-4.9l4.9,4.9l-4.9,4.8C-38.6,35.7-43.4,30.9-43.4,30.9z"
+        ></path>
         <circle class="st3" cx="38.5" cy="11.5" r="4.4"></circle>
         <path
           class="st5"
